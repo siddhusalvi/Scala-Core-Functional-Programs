@@ -1,3 +1,14 @@
+/*
+2. Coupon Numbers
+a. Desc -> Given N distinct Coupon Numbers, how many random numbers do you
+need to generate distinct coupon number? This program simulates this random
+process.
+b. I/P -> N Distinct Coupon Number
+c. Logic -> repeatedly choose a random number and check whether it's a new one.
+d. O/P -> total random number needed to have all distinct numbers.
+e. Functions => Write Class Static Functions to generate random number and to
+process distinct coupons.
+ */
 import scala.util.Random
 import scala.collection.mutable.TreeMap
 object Coupen {
@@ -16,7 +27,6 @@ object Coupen {
            print("\n for "+i+" : ")
           num = scala.io.StdIn.readInt()
           record += (num -> false)
-
         }
         //print(record.toString())
         var min = record.firstKey
@@ -24,12 +34,6 @@ object Coupen {
 
         while(count < cards){
           var rand = getNum(min,max)
-          //print("\nrand is"+rand+" count is "+count)
-          //var temp = record(rand)
-          //print("\n record is"+temp)
-
-
-
           if(record.contains(rand) && (!record(rand))){
               record(rand) = true
               //print("\n in count block")
@@ -47,11 +51,7 @@ object Coupen {
            print("Please enter valid input")
           }
       }
-
-
     }
-
-
     def getNum(min:Int,max:Int):Int= {
       val rnd = new Random
       min + rnd.nextInt((max - min)+1)
