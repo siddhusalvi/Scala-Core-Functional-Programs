@@ -13,15 +13,14 @@ e. Hint -> The Hints is provided in the Logic. Use Functions for the Logic…
 import scala.util.Random
 object tic_tac_toe {
   def main(args: Array[String]): Unit = {
-    var gameflag = true
-    while(gameflag){
+    var playflag = true
+    while(playflag){
       try {
         var data = new Array[Int](9)
         var flag = true
         var flag3 = true
         var pos : Int = 0
-
-
+        //Starting the game
         for(i <- 1 to 9 if flag3){
 
           if(i>4 && checkWin(data)){
@@ -66,30 +65,7 @@ object tic_tac_toe {
             flag = true
           }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        gameflag = false
+        playflag = false
       }
       catch
         {
@@ -98,6 +74,7 @@ object tic_tac_toe {
         }
     }
 
+    // Function to check win or loss
     def check(sum: Int): Boolean = {
       //println("in check");
       if (sum == 9 || sum == 15) {
@@ -107,13 +84,12 @@ object tic_tac_toe {
         false
       }
     }
+    //Generating random number for CPU player
     def randInt(min:Int,max:Int):Int={
       val rnd = new Random
       min + rnd.nextInt((max - min)+1)
     }
-
-
-
+    //Printing current game status
     def current_situation(data:Array[Int]):Unit={
       var str : String =""
       str = "\n\t\t\t"
@@ -132,12 +108,8 @@ object tic_tac_toe {
       }
       println(str)
     }
-
-
-
-
+    //tracking game status
     def checkWin(d: Array[Int]): Boolean = {
-
       var sum = 0
       sum = d(0) + d(1) + d(2)
       if (check(sum)){
@@ -164,17 +136,6 @@ object tic_tac_toe {
       }else{
         false
       }
-
     }
-
-
-
-
-
-
-
-
-  }    //================================================= main function end
-
-
+  }
 }
